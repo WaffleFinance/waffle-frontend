@@ -16,6 +16,9 @@ const config: Config = {
       maxWidth: {
         desktop: '90rem',
       },
+      boxShadow: {
+        greenShadow: '0px 10px 30px 0px #05DF854D',
+      },
     },
   },
   plugins: [],
