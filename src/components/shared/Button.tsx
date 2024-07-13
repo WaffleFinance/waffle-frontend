@@ -9,7 +9,7 @@ type ButtonProps = {
 
 export default function Button({ label, onClick, className }: ButtonProps) {
   return (
-    <button className={twMerge('rounded-2xl bg-primary p-3', className)} onClick={onClick}>
+    <button className={twMerge('cursor-pointer rounded-2xl bg-primary p-3', className)} onClick={onClick}>
       {label}
     </button>
   )

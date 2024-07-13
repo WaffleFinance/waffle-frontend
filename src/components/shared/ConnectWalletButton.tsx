@@ -7,8 +7,7 @@ import UserIcon from './UserIcon'
 import UserAddress from './UserAddress'
 import getNetworkIcon from '@/utils/getNetworkIcon'
 import { TCHAINS } from '@/configs/wagmi.config'
-import arrow from '../../../public/icons/arrow.svg'
-import Image from 'next/image'
+import Arrow from '../icons/Arrow'
 
 export default function ConnectWalletButton() {
   const { isConnected } = useAccount()
@@ -35,7 +34,7 @@ export default function ConnectWalletButton() {
           <div className="flex items-center gap-2 px-4">
             <UserIcon />
             <UserAddress className="text-gray-300" />
-            <Image src={arrow} alt="open arrow" />
+            <Arrow color="gray" />
           </div>
         }
         onClick={() => open({ view: 'Account' })}

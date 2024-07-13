@@ -1,8 +1,7 @@
+import ArrowIncrease from '@/components/icons/ArrowIncrease'
 import Button from '@/components/shared/Button'
 import { PositionType } from '@/utils/constants'
 import { Dispatch, SetStateAction } from 'react'
-import clsx from 'clsx'
-import ArrowIncrease from '@/components/icons/ArrowIncrease'
 
 type PositionSwitchProps = {
   positionType: PositionType
@@ -10,10 +9,10 @@ type PositionSwitchProps = {
 }
 const PositionSwitch: React.FC<PositionSwitchProps> = ({ positionType, setPositionType }) => {
   return (
-    <div className="flex w-full items-center rounded-xl bg-gray-500 p-3">
+    <div className="flex w-full items-center rounded-2xl bg-gray-500 px-1 py-2">
       <Button
         label={
-          <div className={'flex items-center justify-center gap-3'}>
+          <div className={'flex items-center justify-center gap-3 text-lg font-medium'}>
             <ArrowIncrease color={positionType === 'long' ? 'black' : 'gray'} />
             Long
           </div>
@@ -23,7 +22,7 @@ const PositionSwitch: React.FC<PositionSwitchProps> = ({ positionType, setPositi
       />
       <Button
         label={
-          <div className={'flex items-center justify-center gap-3'}>
+          <div className={'flex items-center justify-center gap-3 text-lg font-medium'}>
             <ArrowIncrease color={positionType === 'short' ? 'black' : 'gray'} isOpposite />
             Short
           </div>
