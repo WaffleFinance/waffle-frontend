@@ -3,6 +3,7 @@
 import bgOptions from '@/../public/bg-option.png'
 import CustomSlider from '@/components/shared/CustomSlider'
 import Select from '@/components/shared/Select'
+import useTokenBalance from '@/hooks/useTokenBalance'
 import {
   usePurchaseOptionActions,
   usePurchaseOptionLeverage,
@@ -13,8 +14,9 @@ import {
 } from '@/stores/purchaseOption.store'
 import { Token, TOKEN_PAIRS } from '@/utils/constants'
 import Image from 'next/image'
-import InfoItem from './InfoItem'
+import { formatEther } from 'viem'
 import TokenInput from '../../shared/TokenInput'
+import InfoItem from './InfoItem'
 const leverageMarks = {
   1.1: { label: '1.1x', style: { color: '#A3a3b1' } },
   2: { label: '2x', style: { color: '#A3a3b1' } },
@@ -32,6 +34,8 @@ const OptionPurchase: React.FC = () => {
   const { quantity: payTokenQuantity, ...payTokenWithoutQuantity } = payToken
   const { quantity: positionTokenQuantity, ...positionTokenWithoutQuantity } = positionToken
 
+  const payTokenBalance = useTokenBalance(payToken.id)
+
   return (
     <div className="relative flex flex-col gap-5 rounded-3xl bg-gray-500 p-12 pb-5">
       <div className="absolute inset-0 overflow-hidden rounded-3xl">
@@ -43,7 +47,7 @@ const OptionPurchase: React.FC = () => {
           setAmount={changePayTokenQuantity}
           token={payTokenWithoutQuantity as Token}
           overTextLeft={'Pay'}
-          overTextRight={'Balance'}
+          overTextRight={`Balance ${payTokenBalance ? Number(formatEther(payTokenBalance)).toFixed(3) : '-'}`}
         />
         <TokenInput
           amount={positionTokenQuantity}

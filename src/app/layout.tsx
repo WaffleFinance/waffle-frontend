@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer'
 import NavBar from '@/components/ui/NavBar'
 import { GENERAL_CONFIG } from '@/configs/app.config'
-import { wagmiConfig } from '@/configs/wagmi.config'
+import { config } from '@/configs/wagmi.config'
 import WalletProvider from '@/providers/WalletProvider'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
@@ -21,7 +21,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const initialState = cookieToInitialState(wagmiConfig, headers().get('cookie'))
+  const initialState = cookieToInitialState(config, headers().get('cookie'))
 
   return (
     <html lang="en">

@@ -23,14 +23,15 @@ export type TCHAINS = (typeof chainIds)[number]
 
 declare module 'wagmi' {
   interface Register {
-    config: typeof wagmiConfig
+    config: typeof config
   }
 }
 
-export const wagmiConfig = defaultWagmiConfig({
+export const config = defaultWagmiConfig({
   chains,
   projectId,
   metadata,
+  enableEIP6963: true,
   ssr: true,
   storage: createStorage({
     storage: cookieStorage,
