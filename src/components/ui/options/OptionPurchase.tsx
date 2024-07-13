@@ -1,19 +1,20 @@
 'use client'
 
 import bgOptions from '@/../public/bg-option.png'
-import Image from 'next/image'
-import TokenInput from './TokenInput'
-import { STABLE_TOKENS, Token, TOKENS } from '@/utils/constants'
-import { SetStateAction } from 'react'
+import CustomSlider from '@/components/shared/CustomSlider'
+import Select from '@/components/shared/Select'
 import {
   usePurchaseOptionActions,
   usePurchaseOptionLeverage,
   usePurchaseOptionPayToken,
+  usePurchaseOptionPool,
   usePurchaseOptionPositionToken,
   usePurchaseOptionPositionType,
 } from '@/stores/option.store'
+import { Token, TOKEN_PAIRS } from '@/utils/constants'
+import Image from 'next/image'
 import InfoItem from './InfoItem'
-import CustomSlider from '@/components/shared/CustomSlider'
+import TokenInput from './TokenInput'
 const leverageMarks = {
   1.1: { label: '1.1x', style: { color: '#A3a3b1' } },
   2: { label: '2x', style: { color: '#A3a3b1' } },
@@ -25,8 +26,8 @@ const OptionPurchase: React.FC = () => {
   const positionToken = usePurchaseOptionPositionToken()
   const positionType = usePurchaseOptionPositionType()
   const leverage = usePurchaseOptionLeverage()
-  const { changePayToken, changePositionToken, changePayTokenQuantity, changePositionTokenQuantity, changeLeverage } =
-    usePurchaseOptionActions()
+  const pool = usePurchaseOptionPool()
+  const { changePayTokenQuantity, changePositionTokenQuantity, changeLeverage, changePool } = usePurchaseOptionActions()
 
   const { quantity: payTokenQuantity, ...payTokenWithoutQuantity } = payToken
   const { quantity: positionTokenQuantity, ...positionTokenWithoutQuantity } = positionToken
@@ -41,8 +42,6 @@ const OptionPurchase: React.FC = () => {
           amount={payTokenQuantity}
           setAmount={changePayTokenQuantity}
           token={payTokenWithoutQuantity as Token}
-          setToken={changePayToken}
-          tokenList={STABLE_TOKENS}
           overTextLeft={'Pay'}
           overTextRight={'Balance'}
         />
@@ -50,12 +49,11 @@ const OptionPurchase: React.FC = () => {
           amount={positionTokenQuantity}
           setAmount={changePositionTokenQuantity}
           token={positionTokenWithoutQuantity}
-          setToken={changePositionToken}
-          tokenList={TOKENS}
           overTextLeft={positionType}
           overTextRight={`Leverage ${leverage}`}
         />
       </div>
+      <InfoItem label="Pool" value={<Select items={TOKEN_PAIRS} selected={pool} setSelected={changePool} />} />
       <div className="flex flex-col gap-8 py-4">
         <p className="text-sm font-medium text-gray-300">Leverage slider</p>
         <CustomSlider marks={leverageMarks} max={3} min={1.1} step={0.1} option={leverage} setOption={changeLeverage} />

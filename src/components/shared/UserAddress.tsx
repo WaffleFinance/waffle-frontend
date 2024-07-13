@@ -11,6 +11,8 @@ const UserAddress: React.FC<UserAddressProps> = ({ className, isFullAddress }) =
     address,
   })
 
+  console.log({ address, ensName })
+
   const getDisplayAddress = () => {
     if (ensName) return ensName
     if (!address) return ''

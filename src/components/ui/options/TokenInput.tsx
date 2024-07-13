@@ -1,13 +1,12 @@
-import Select from '@/components/shared/Select'
 import { Token } from '@/utils/constants'
+import getTokenIcon from '@/utils/getTokenIcon'
 import { debounce } from 'lodash'
+import Image from 'next/image'
 
 type TokenInputProps = {
   amount: number
   setAmount: (quantity: number) => void
   token: Token
-  setToken: (token: Token) => void
-  tokenList: Token[]
   overTextLeft?: string
   overTextRight?: string
 }
@@ -18,15 +17,7 @@ const normalizeNumber = (input: string): number => {
   return normalizedNumber
 }
 
-const TokenInput: React.FC<TokenInputProps> = ({
-  amount,
-  setAmount,
-  token,
-  setToken,
-  tokenList,
-  overTextLeft,
-  overTextRight,
-}) => {
+const TokenInput: React.FC<TokenInputProps> = ({ amount, setAmount, token, overTextLeft, overTextRight }) => {
   const debouncedOnChange = debounce((e) => setAmount(normalizeNumber(e.target.value)), 1000)
 
   return (
@@ -40,9 +31,12 @@ const TokenInput: React.FC<TokenInputProps> = ({
           value={amount}
           type="number"
           onChange={debouncedOnChange}
-          className="bg-transparent text-white w-full text-2xl font-medium outline-0"
+          className="w-full bg-transparent text-2xl font-medium text-white outline-0"
         />
-        <Select items={tokenList} selected={token} setSelected={setToken} />
+        <div className="flex items-center gap-2">
+          <Image src={getTokenIcon(token.id)} alt="token icon" width={24} height={24} />
+          <p className="text-xl font-bold text-white">{token.label}</p>
+        </div>
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ export type Token = {
   id: string
   label: string
 }
+export type TokenPair = { id: string; label: string; first: string; second: string }
 
 export type TokenWithQuantity = Token & { quantity: number }
 
@@ -14,12 +15,13 @@ export type PurchaseOption = {
   leverage: number
 }
 
-export const STABLE_TOKENS = [
-  { id: 'USDC', label: 'USDC' },
-  { id: 'USDT', label: 'USDT' },
-]
+export const TOKENS = new Map([
+  ['BTC', { id: 'BTC', label: 'BTC' }],
+  ['ETH', { id: 'ETH', label: 'ETH' }],
+  ['USDC', { id: 'USDC', label: 'USDC' }],
+])
 
-export const TOKENS = [
-  { id: 'BTC', label: 'BTC' },
-  { id: 'ETH', label: 'ETH' },
+export const TOKEN_PAIRS: TokenPair[] = [
+  { id: 'BTCUSDC', label: 'BTC-USDC', first: 'BTC', second: 'USDC' },
+  { id: 'ETHUSDC', label: 'ETH-USDC', first: 'ETH', second: 'USDC' },
 ]
