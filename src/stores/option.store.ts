@@ -8,7 +8,7 @@ type PurchaseOptionStore = {
   positionToken: TokenWithQuantity
   actions: {
     changePositionType: (newPositionType: PositionType) => void
-    changeLeverage: (newLeverage: number) => void
+    changeLeverage: (newLeverage: number | number[]) => void
     changePayToken: (token: Token) => void
     changePayTokenQuantity: (quantity: number) => void
     changePositionToken: (token: Token) => void
@@ -26,10 +26,11 @@ const usePurchaseOptionStore = create<PurchaseOptionStore>((set) => ({
       set((state) => ({
         positionType,
       })),
-    changeLeverage: (leverage: number) =>
+    changeLeverage: (leverage: number | number[]) => {
       set((state) => ({
-        leverage,
-      })),
+        leverage: leverage as number,
+      }))
+    },
     changePayToken: (payToken: Token) =>
       set((state) => ({
         payToken: { ...payToken, quantity: state.payToken.quantity },
