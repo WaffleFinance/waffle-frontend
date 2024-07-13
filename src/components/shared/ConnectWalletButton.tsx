@@ -34,7 +34,9 @@ export default function ConnectWalletButton() {
       <Button
         label={
           <div className="flex items-center gap-2 px-2 md:px-4">
-            <UserIcon />
+            <span className="hidden lg:block">
+              <UserIcon />
+            </span>
             <UserAddress className="text-gray-300" />
             <Arrow color="gray" />
           </div>
@@ -44,10 +46,10 @@ export default function ConnectWalletButton() {
       />
       <Button
         label={
-          <div className="flex items-center gap-5 px-2 md:px-4">
+          <div className="flex items-center gap-5 px-2 lg:px-4">
             {getNetworkIcon(chaindId as TCHAINS)}
-            <div className="hidden h-7 border border-gray-400 md:block" />
-            <p className="hidden rotate-90 text-xl text-gray-400 md:block">...</p>
+            <div className="hidden h-7 border border-gray-400 lg:block" />
+            <p className="hidden rotate-90 text-xl text-gray-400 lg:block">...</p>
           </div>
         }
         onClick={() => open({ view: 'Networks' })}

@@ -12,7 +12,7 @@ const PositionSwitch: React.FC = () => {
       <Button
         label={
           <div className={'flex items-center justify-center gap-3 text-lg font-medium'}>
-            <ArrowIncrease color={positionType === 'long' ? 'black' : 'gray'} />
+            <ArrowIncrease />
             Long
           </div>
         }
@@ -22,7 +22,7 @@ const PositionSwitch: React.FC = () => {
       <Button
         label={
           <div className={'flex items-center justify-center gap-3 text-lg font-medium'}>
-            <ArrowIncrease color={positionType === 'short' ? 'black' : 'gray'} isOpposite />
+            <ArrowIncrease isOpposite />
             Short
           </div>
         }

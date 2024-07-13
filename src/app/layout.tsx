@@ -25,7 +25,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${poppins.className} flex h-screen min-h-screen flex-col justify-between gap-8 bg-gray-900`}>
+      <body
+        className={`${poppins.className} flex h-screen min-h-screen flex-col justify-between gap-16 bg-gray-900 md:gap-8`}
+      >
         <WalletProvider initialState={initialState}>
           <NavBar />
           {children}
