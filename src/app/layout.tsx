@@ -8,6 +8,7 @@ import { Poppins } from 'next/font/google'
 import { headers } from 'next/headers'
 import { cookieToInitialState } from 'wagmi'
 import './globals.css'
+import { Toaster } from 'sonner'
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'] })
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         <WalletProvider initialState={initialState}>
           <NavBar />
           {children}
+          <Toaster richColors />
           <Footer />
         </WalletProvider>
       </body>

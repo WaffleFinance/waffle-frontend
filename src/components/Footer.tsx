@@ -4,8 +4,8 @@ import MainBrand from './shared/MainBrand'
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gray-500 px-10 py-10">
-      <div className="flex max-w-desktop items-center justify-between">
+    <footer className="flex w-full items-center justify-between bg-gray-500 px-10 py-10">
+      <div className="flex w-full max-w-desktop items-center justify-between">
         <MainBrand />
         <Link href={'#'}>
           <Button

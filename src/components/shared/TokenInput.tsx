@@ -1,16 +1,26 @@
 import { Token } from '@/utils/constants'
 import getTokenIcon from '@/utils/getTokenIcon'
 import Image from 'next/image'
+import Select from './Select'
+import { TOKENS } from '@/utils/tokens'
 
 type TokenInputProps = {
   amount: number
   setAmount: (quantity: number) => void
   token: Token
+  setSelectToken?: (token: Token) => void
   overTextLeft?: string
   overTextRight?: string
 }
 
-const TokenInput: React.FC<TokenInputProps> = ({ amount, setAmount, token, overTextLeft, overTextRight }) => {
+const TokenInput: React.FC<TokenInputProps> = ({
+  amount,
+  setAmount,
+  token,
+  setSelectToken,
+  overTextLeft,
+  overTextRight,
+}) => {
   return (
     <div className="rounded-xl bg-gray-500 p-3 px-2 md:px-8">
       <div className="flex items-center justify-between">
@@ -25,8 +35,15 @@ const TokenInput: React.FC<TokenInputProps> = ({ amount, setAmount, token, overT
           className="w-full bg-transparent text-lg font-medium text-white outline-0 md:text-2xl"
         />
         <div className="flex flex-shrink-0 items-center gap-2">
-          <Image src={getTokenIcon(token.id)} alt="token icon" width={24} height={24} />
-          <p className="text-md font-bold text-white md:text-xl">{token.label}</p>
+          {setSelectToken ? (
+            <Select items={Array.from(TOKENS.values())} selected={token} setSelected={setSelectToken} />
+          ) : (
+            <>
+              {' '}
+              <Image src={getTokenIcon(token.id)} alt="token icon" width={24} height={24} />
+              <p className="text-md font-bold text-white md:text-xl">{token.label}</p>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import ArrowIncrease from './icons/ArrowIncrease'
 import clsx from 'clsx'
 import CoinsIcon from './icons/CoinsIcon'
 import { usePathname } from 'next/navigation'
+import FaucetIcon from './icons/FaucetIcon'
 
 export default function NavItems() {
   const navItems = [
@@ -22,6 +23,11 @@ export default function NavItems() {
       href: '/earn',
       label: 'Earn',
       icon: <CoinsIcon />,
+    },
+    {
+      href: '/faucet',
+      label: 'Faucet',
+      icon: <FaucetIcon />,
     },
   ]
   const pathname = usePathname()

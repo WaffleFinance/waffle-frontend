@@ -1,4 +1,5 @@
-import { LiquidityPoolMode, Token, TOKEN_PAIRS, TokenPair, TOKENS, TokenWithQuantity } from '@/utils/constants'
+import { LiquidityPoolMode, Token, TOKEN_PAIRS, TokenPair, TokenWithQuantity } from '@/utils/constants'
+import { TOKENS } from '@/utils/tokens'
 import { create } from 'zustand'
 
 type LiquidityPoolStore = {

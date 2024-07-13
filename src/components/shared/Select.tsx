@@ -1,13 +1,14 @@
 'use client'
 
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions, Transition } from '@headlessui/react'
-import { Dispatch, Fragment, SetStateAction } from 'react'
+import { Dispatch, Fragment, ReactNode, SetStateAction } from 'react'
 import { twMerge } from 'tailwind-merge'
 import Arrow from '../icons/Arrow'
 
 type SelectType = {
   id: number | string
   label: string
+  icon?: ReactNode
 }
 
 type SelectProps<T extends SelectType> = {
@@ -23,6 +24,7 @@ export default function Select<T extends SelectType>({ items, selected, setSelec
       {({ open }) => (
         <div className="relative">
           <ListboxButton className={twMerge('flex items-center gap-2 disabled:opacity-80', className)}>
+            {selected.icon}
             <span className="block truncate text-lg font-medium text-white md:text-xl">{selected?.label}</span>
             <Arrow color="white" rotate={open} />
           </ListboxButton>
@@ -33,9 +35,11 @@ export default function Select<T extends SelectType>({ items, selected, setSelec
                 .map((item) => (
                   <ListboxOption
                     key={item.id}
-                    className={`group relative cursor-pointer select-none py-2 transition-opacity duration-150 hover:opacity-80`}
+                    className={`group relative flex cursor-pointer select-none items-center gap-2 py-2 transition-opacity duration-150 hover:opacity-80`}
                     value={item}
                   >
+                    {item.icon}
+
                     <span className={`block truncate ps-4 text-start text-lg uppercase text-white md:text-xl`}>
                       {item.label}
                     </span>

@@ -1,4 +1,5 @@
-import { PositionType, Token, TOKEN_PAIRS, TokenPair, TOKENS, TokenWithQuantity } from '@/utils/constants'
+import { PositionType, Token, TOKEN_PAIRS, TokenPair, TokenWithQuantity } from '@/utils/constants'
+import { TOKENS } from '@/utils/tokens'
 import { create } from 'zustand'
 
 type PurchaseOptionStore = {
@@ -21,8 +22,8 @@ type PurchaseOptionStore = {
 const usePurchaseOptionStore = create<PurchaseOptionStore>((set) => ({
   positionType: 'long',
   leverage: 1.1,
-  payToken: { id: 'BTC', label: 'BTC', quantity: 0.0 },
-  positionToken: { id: 'USDC', label: 'USDC', quantity: 0.0 },
+  payToken: { ...(TOKENS.get('BTC') as Token), quantity: 0 },
+  positionToken: { ...(TOKENS.get('USDC') as Token), quantity: 0 },
   pool: TOKEN_PAIRS[0],
   actions: {
     changePositionType: (positionType: PositionType) =>

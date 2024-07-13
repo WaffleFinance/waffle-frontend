@@ -1,5 +1,6 @@
 import { TCHAINS } from '@/configs/wagmi.config'
-import { SUPPORTED_TOKENS, TOKENS } from '@/utils/constants'
+import { SUPPORTED_TOKENS } from '@/utils/constants'
+import { TOKENS } from '@/utils/tokens'
 import { erc20Abi, zeroAddress } from 'viem'
 import { useAccount, useChainId, useReadContract } from 'wagmi'
 
