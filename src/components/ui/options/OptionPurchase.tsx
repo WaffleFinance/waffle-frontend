@@ -37,7 +37,7 @@ const OptionPurchase: React.FC = () => {
   const payTokenBalance = useTokenBalance(payToken.id)
 
   return (
-    <div className="relative flex flex-col gap-5 rounded-3xl bg-gray-500 p-12 pb-5">
+    <div className="relative flex flex-col gap-5 rounded-3xl bg-gray-500 p-5 pb-5 md:p-12">
       <div className="absolute inset-0 overflow-hidden rounded-3xl">
         <Image src={bgOptions} alt="background" fill className="pointer-events-none" />
       </div>

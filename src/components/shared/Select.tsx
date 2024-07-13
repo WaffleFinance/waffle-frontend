@@ -23,7 +23,7 @@ export default function Select<T extends SelectType>({ items, selected, setSelec
       {({ open }) => (
         <div className="relative">
           <ListboxButton className={twMerge('flex items-center gap-2 disabled:opacity-80', className)}>
-            <span className="block truncate text-xl font-medium text-white">{selected?.label}</span>
+            <span className="block truncate text-lg font-medium text-white md:text-xl">{selected?.label}</span>
             <Arrow color="white" rotate={open} />
           </ListboxButton>
           <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
@@ -36,7 +36,9 @@ export default function Select<T extends SelectType>({ items, selected, setSelec
                     className={`group relative cursor-pointer select-none py-2 transition-opacity duration-150 hover:opacity-80`}
                     value={item}
                   >
-                    <span className={`block truncate ps-4 text-start uppercase text-white`}>{item.label}</span>
+                    <span className={`block truncate ps-4 text-start text-lg uppercase text-white md:text-xl`}>
+                      {item.label}
+                    </span>
                   </ListboxOption>
                 ))}
             </ListboxOptions>
