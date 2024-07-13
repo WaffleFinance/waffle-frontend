@@ -1,7 +1,7 @@
 import { defaultWagmiConfig } from '@web3modal/wagmi/react/config'
 
 import { cookieStorage, createStorage } from 'wagmi'
-import { bscTestnet, sepolia } from 'wagmi/chains'
+import { sepolia } from 'wagmi/chains'
 import { GENERAL_CONFIG } from './app.config'
 
 // Get projectId from https://cloud.walletconnect.com
