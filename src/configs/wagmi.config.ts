@@ -17,7 +17,7 @@ const metadata = {
 }
 
 // Create wagmiConfig
-const chains = [sepolia, bscTestnet] as const
+const chains = [sepolia] as const
 const chainIds = chains.map((item) => item.id)
 export type TCHAINS = (typeof chainIds)[number]
 

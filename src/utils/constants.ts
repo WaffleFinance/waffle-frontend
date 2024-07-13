@@ -24,6 +24,6 @@ export type PurchaseOption = {
 export type SUPPORTED_TOKENS = 'BTC' | 'ETH' | 'USDC'
 
 export const TOKEN_PAIRS: TokenPair[] = [
-  { id: 'BTCUSDC', label: 'BTC-USDC', first: 'BTC', second: 'USDC' },
+  // { id: 'BTCUSDC', label: 'BTC-USDC', first: 'BTC', second: 'USDC' },
   { id: 'ETHUSDC', label: 'ETH-USDC', first: 'ETH', second: 'USDC' },
 ]
