@@ -1,13 +1,12 @@
+'use client'
 import ArrowIncrease from '@/components/icons/ArrowIncrease'
 import Button from '@/components/shared/Button'
-import { PositionType } from '@/utils/constants'
-import { Dispatch, SetStateAction } from 'react'
+import { usePurchaseOptionActions, usePurchaseOptionPositionType } from '@/stores/option.store'
 
-type PositionSwitchProps = {
-  positionType: PositionType
-  setPositionType: Dispatch<SetStateAction<PositionType>>
-}
-const PositionSwitch: React.FC<PositionSwitchProps> = ({ positionType, setPositionType }) => {
+const PositionSwitch: React.FC = () => {
+  const positionType = usePurchaseOptionPositionType()
+  const { changePositionType } = usePurchaseOptionActions()
+
   return (
     <div className="flex w-full items-center rounded-2xl bg-gray-500 px-1 py-2">
       <Button
@@ -17,7 +16,7 @@ const PositionSwitch: React.FC<PositionSwitchProps> = ({ positionType, setPositi
             Long
           </div>
         }
-        onClick={() => setPositionType('long')}
+        onClick={() => changePositionType('long')}
         className={`w-full ${positionType === 'long' ? 'shadow-greenShadow bg-primary text-gray-900' : 'bg-gray-500 text-gray-300'}`}
       />
       <Button
@@ -27,7 +26,7 @@ const PositionSwitch: React.FC<PositionSwitchProps> = ({ positionType, setPositi
             Short
           </div>
         }
-        onClick={() => setPositionType('short')}
+        onClick={() => changePositionType('short')}
         className={`w-full ${positionType === 'short' ? 'shadow-greenShadow bg-primary text-gray-900' : 'bg-gray-500 text-gray-300'}`}
       />
     </div>

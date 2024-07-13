@@ -12,6 +12,7 @@ import {
   usePurchaseOptionPositionToken,
   usePurchaseOptionPositionType,
 } from '@/stores/option.store'
+import InfoItem from './InfoItem'
 
 const OptionPurchase: React.FC = () => {
   const payToken = usePurchaseOptionPayToken()
@@ -48,6 +49,13 @@ const OptionPurchase: React.FC = () => {
           overTextLeft={positionType}
           overTextRight={`Leverage ${leverage}`}
         />
+      </div>
+      <InfoItem label={'Leverage'} value={`${leverage}x`} />
+      <div className="flex flex-col gap-1">
+        <InfoItem label={'Execution price'} value={undefined} />
+        <InfoItem label={'Liq. price'} value={undefined} />
+        <InfoItem label={'Fees (rebated)'} value={undefined} />
+        <InfoItem label={'Network fee'} value={undefined} />
       </div>
     </div>
   )
