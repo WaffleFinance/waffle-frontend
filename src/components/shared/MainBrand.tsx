@@ -1,3 +1,3 @@
 export default function MainBrand() {
-  return <p className="text-4xl font-extrabold text-primary">NEXT.</p>
+  return <p className="text-2xl font-extrabold text-primary lg:text-4xl">NEXT.</p>
 }

@@ -19,7 +19,9 @@ export default function ConnectWalletButton() {
         label={
           <div className="flex items-center gap-2">
             <UserIcon />
-            <p className="text-gray-300">Connect Wallet</p>
+            <p className="text-gray-300">
+              Connect <span className="hidden lg:block">Wallet</span>
+            </p>
           </div>
         }
         onClick={open}
@@ -31,7 +33,7 @@ export default function ConnectWalletButton() {
     <div className="flex gap-3">
       <Button
         label={
-          <div className="flex items-center gap-2 px-4">
+          <div className="flex items-center gap-2 px-2 md:px-4">
             <UserIcon />
             <UserAddress className="text-gray-300" />
             <Arrow color="gray" />
@@ -42,10 +44,10 @@ export default function ConnectWalletButton() {
       />
       <Button
         label={
-          <div className="flex items-center gap-5 px-4">
+          <div className="flex items-center gap-5 px-2 md:px-4">
             {getNetworkIcon(chaindId as TCHAINS)}
-            <div className="h-7 border border-gray-400" />
-            <p className="rotate-90 text-xl text-gray-400">...</p>
+            <div className="hidden h-7 border border-gray-400 md:block" />
+            <p className="hidden rotate-90 text-xl text-gray-400 md:block">...</p>
           </div>
         }
         onClick={() => open({ view: 'Networks' })}

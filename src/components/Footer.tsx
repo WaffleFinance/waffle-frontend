@@ -8,7 +8,10 @@ export default function Footer() {
       <div className="flex max-w-desktop items-center justify-between">
         <MainBrand />
         <Link href={'#'}>
-          <Button label="Join Community" className="bg-darkGreen px-10 py-4 text-lg text-primary" />
+          <Button
+            label="Join Community"
+            className="bg-darkGreen px-4 py-4 text-base text-primary lg:px-10 lg:text-lg"
+          />
         </Link>
       </div>
     </footer>
