@@ -1,7 +1,7 @@
 'use client'
 import ArrowIncrease from '@/components/icons/ArrowIncrease'
 import Button from '@/components/shared/Button'
-import { usePurchaseOptionActions, usePurchaseOptionPositionType } from '@/stores/option.store'
+import { usePurchaseOptionActions, usePurchaseOptionPositionType } from '@/stores/purchaseOption.store'
 
 const PositionSwitch: React.FC = () => {
   const positionType = usePurchaseOptionPositionType()
@@ -17,7 +17,7 @@ const PositionSwitch: React.FC = () => {
           </div>
         }
         onClick={() => changePositionType('long')}
-        className={`w-full ${positionType === 'long' ? 'shadow-greenShadow bg-primary text-gray-900' : 'bg-gray-500 text-gray-300'}`}
+        className={`w-full ${positionType === 'long' ? 'bg-primary text-gray-900 shadow-greenShadow' : 'bg-gray-500 text-gray-300'}`}
       />
       <Button
         label={
@@ -27,7 +27,7 @@ const PositionSwitch: React.FC = () => {
           </div>
         }
         onClick={() => changePositionType('short')}
-        className={`w-full ${positionType === 'short' ? 'shadow-greenShadow bg-primary text-gray-900' : 'bg-gray-500 text-gray-300'}`}
+        className={`w-full ${positionType === 'short' ? 'bg-primary text-gray-900 shadow-greenShadow' : 'bg-gray-500 text-gray-300'}`}
       />
     </div>
   )

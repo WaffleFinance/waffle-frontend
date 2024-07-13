@@ -27,20 +27,16 @@ export default function Select<T extends SelectType>({ items, selected, setSelec
             <Arrow color="white" rotate={open} />
           </ListboxButton>
           <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
-            <ListboxOptions className="teal-scrollbar absolute top-11 z-[80] max-h-60 w-full overflow-auto py-1 shadow-lg focus:outline-none">
+            <ListboxOptions className="teal-scrollbar absolute top-10 z-50 max-h-60 w-full overflow-auto rounded-xl bg-gray-500 bg-opacity-75 py-1 shadow-2xl focus:outline-none">
               {items
                 .filter((x) => x.id !== selected?.id)
                 .map((item) => (
                   <ListboxOption
                     key={item.id}
-                    className={`bg-black group relative cursor-pointer select-none border border-dashed border-white py-2 hover:bg-white`}
+                    className={`group relative cursor-pointer select-none py-2 transition-opacity duration-150 hover:opacity-80`}
                     value={item}
                   >
-                    <span
-                      className={`text-teal-300 group-hover:text-black block truncate ps-4 text-start text-base font-thin uppercase xl:text-lg`}
-                    >
-                      {item.label}
-                    </span>
+                    <span className={`block truncate ps-4 text-start uppercase text-white`}>{item.label}</span>
                   </ListboxOption>
                 ))}
             </ListboxOptions>

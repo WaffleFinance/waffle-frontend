@@ -10,11 +10,11 @@ import {
   usePurchaseOptionPool,
   usePurchaseOptionPositionToken,
   usePurchaseOptionPositionType,
-} from '@/stores/option.store'
+} from '@/stores/purchaseOption.store'
 import { Token, TOKEN_PAIRS } from '@/utils/constants'
 import Image from 'next/image'
 import InfoItem from './InfoItem'
-import TokenInput from './TokenInput'
+import TokenInput from '../../shared/TokenInput'
 const leverageMarks = {
   1.1: { label: '1.1x', style: { color: '#A3a3b1' } },
   2: { label: '2x', style: { color: '#A3a3b1' } },

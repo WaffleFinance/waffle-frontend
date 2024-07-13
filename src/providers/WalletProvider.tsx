@@ -18,8 +18,6 @@ createWeb3Modal({
   wagmiConfig,
   projectId,
   enableOnramp: true,
-  enableAnalytics: true, // Optional - defaults to your Cloud configuration
-  // enableOnramp: true, // Optional - false as default
   themeMode: 'dark',
   themeVariables: {
     '--w3m-accent': '#05DF85',

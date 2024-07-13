@@ -16,9 +16,9 @@ export default function Arrow({ color, rotate }: ArrowProps) {
       <path
         d="M6 10L12 16L18 10"
         stroke={color === 'white' ? '#FFF' : '#A5A5A5'}
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )

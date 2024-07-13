@@ -1,7 +1,7 @@
 'use client'
 
 import Button from '@/components/shared/Button'
-import { usePurchaseOptionPositionToken, usePurchaseOptionPositionType } from '@/stores/option.store'
+import { usePurchaseOptionPositionToken, usePurchaseOptionPositionType } from '@/stores/purchaseOption.store'
 import { useWeb3Modal } from '@web3modal/wagmi/react'
 import { useAccount } from 'wagmi'
 

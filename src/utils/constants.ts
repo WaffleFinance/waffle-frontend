@@ -1,4 +1,5 @@
 export type PositionType = 'long' | 'short'
+export type LiquidityPoolMode = 'deposit' | 'withdraw'
 
 export type Token = {
   id: string

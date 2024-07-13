@@ -1,6 +1,5 @@
 import { Token } from '@/utils/constants'
 import getTokenIcon from '@/utils/getTokenIcon'
-import { debounce } from 'lodash'
 import Image from 'next/image'
 
 type TokenInputProps = {
@@ -10,16 +9,8 @@ type TokenInputProps = {
   overTextLeft?: string
   overTextRight?: string
 }
-const normalizeNumber = (input: string): number => {
-  const normalizedNumber = parseFloat(input.replace(',', '.'))
-  if (isNaN(normalizedNumber)) return 0.0
-
-  return normalizedNumber
-}
 
 const TokenInput: React.FC<TokenInputProps> = ({ amount, setAmount, token, overTextLeft, overTextRight }) => {
-  const debouncedOnChange = debounce((e) => setAmount(normalizeNumber(e.target.value)), 1000)
-
   return (
     <div className="rounded-xl bg-gray-500 p-3 px-8">
       <div className="flex items-center justify-between">
@@ -30,7 +21,7 @@ const TokenInput: React.FC<TokenInputProps> = ({ amount, setAmount, token, overT
         <input
           value={amount}
           type="number"
-          onChange={debouncedOnChange}
+          onChange={(e) => setAmount(+e.target.value)}
           className="w-full bg-transparent text-2xl font-medium text-white outline-0"
         />
         <div className="flex items-center gap-2">
