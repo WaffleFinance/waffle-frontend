@@ -3,6 +3,7 @@
 import bgLiquidityPools from '@/../public/bg-option.png'
 import Select from '@/components/shared/Select'
 import TokenInput from '@/components/shared/TokenInput'
+import useTokenBalance from '@/hooks/useTokenBalance'
 import {
   useLiquidityPoolActions,
   useLiquidityPoolFirst,
@@ -12,6 +13,7 @@ import {
 } from '@/stores/liquiditypool.store'
 import { TOKEN_PAIRS } from '@/utils/constants'
 import Image from 'next/image'
+import { formatEther } from 'viem'
 
 const LiquidityPool: React.FC = () => {
   const pair = useLiquidityPoolPair()
@@ -19,6 +21,9 @@ const LiquidityPool: React.FC = () => {
   const firstToken = useLiquidityPoolFirst()
   const secondToken = useLiquidityPoolSecond()
   const { changePair, changeFirstTokenQuantity, changeSecondTokenQuantity } = useLiquidityPoolActions()
+
+  const firstTokenBalance = useTokenBalance(firstToken.id)
+  const secondTokenBalance = useTokenBalance(secondToken.id)
 
   return (
     <div className="relative flex flex-col gap-5 rounded-3xl bg-gray-500 p-12 pb-5">
@@ -37,13 +42,13 @@ const LiquidityPool: React.FC = () => {
           amount={firstToken.quantity}
           setAmount={changeFirstTokenQuantity}
           token={firstToken}
-          overTextRight="Balance"
+          overTextRight={`Balance ${firstTokenBalance ? Number(formatEther(firstTokenBalance)).toFixed(3) : '-'}`}
         />
         <TokenInput
           amount={secondToken.quantity}
           setAmount={changeSecondTokenQuantity}
           token={secondToken}
-          overTextRight="Balance"
+          overTextRight={`Balance ${secondTokenBalance ? Number(formatEther(secondTokenBalance)).toFixed(3) : '-'}`}
         />
       </div>
     </div>
