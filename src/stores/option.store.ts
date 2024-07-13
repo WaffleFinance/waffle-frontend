@@ -32,7 +32,7 @@ const usePurchaseOptionStore = create<PurchaseOptionStore>((set) => ({
         payToken: state.positionToken,
       })),
     changeLeverage: (leverage: number | number[]) => {
-      set((state) => ({
+      set(() => ({
         leverage: leverage as number,
       }))
     },

@@ -1,7 +1,6 @@
 'use client'
 
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions, Transition } from '@headlessui/react'
-import clsx from 'clsx'
 import { Dispatch, Fragment, SetStateAction } from 'react'
 import { twMerge } from 'tailwind-merge'
 import Arrow from '../icons/Arrow'

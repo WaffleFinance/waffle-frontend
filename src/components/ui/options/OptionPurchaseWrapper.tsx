@@ -1,9 +1,7 @@
 'use client'
 
-import { PositionType } from '@/utils/constants'
-import { useState } from 'react'
-import PositionSwitch from './PositionSwitch'
 import OptionPurchase from './OptionPurchase'
+import PositionSwitch from './PositionSwitch'
 import PurchaseOptionBtn from './PurchaseOptionBtn'
 
 export default function OptionPurchaseWrapper() {
