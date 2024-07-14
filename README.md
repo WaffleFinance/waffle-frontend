@@ -1,9 +1,9 @@
-#WaffleFinance Frontend
+# WaffleFinance Frontend
 
-##Tech Used
+## Tech Used
 
--Next.js App Router , Wagmi 2.x, Viem 2.x
--Wallet connect -> Social logins, smart accounts, OnRamp and Swap 
+- Next.js App Router , Wagmi 2.x, Viem 2.x
+- Wallet connect -> Social logins, smart accounts, OnRamp and Swap 
 This allows for an improved security and a better user experience and onboarding for newcomers of web3.
 
 
