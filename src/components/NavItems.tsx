@@ -9,13 +9,13 @@ import FaucetIcon from './icons/FaucetIcon'
 
 export default function NavItems() {
   const navItems = [
+    // {
+    //   href: '/',
+    //   label: 'Home',
+    //   icon: <HomeIcon />,
+    // },
     {
       href: '/',
-      label: 'Home',
-      icon: <HomeIcon />,
-    },
-    {
-      href: '/trade',
       label: 'Trade',
       icon: <ArrowIncrease />,
     },

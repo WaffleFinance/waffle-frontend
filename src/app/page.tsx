@@ -1,20 +1,12 @@
+import OptionPurchaseWrapper from '@/components/ui/options/OptionPurchaseWrapper'
 import Image from 'next/image'
-import kvBrand from '@/../public/kv-brand.png'
-import iphone from '@/../public/iphone.png'
+import bunny from '@/../public/earn-bunny.png'
 
-export default function HomePage() {
+export default function TradePage() {
   return (
-    <main className="flex h-full w-full flex-col items-start justify-center bg-cover bg-no-repeat">
-      <div className="relative flex h-full w-full max-w-desktop items-center justify-start">
-        <Image src={kvBrand} alt="Brand image" className="px-16" />
-        <Image
-          src={iphone}
-          alt="phone image"
-          className="absolute bottom-0 right-0 h-auto w-[20rem] md:w-[35rem] lg:w-[50rem]"
-          width={800}
-          height={0}
-        />
-      </div>
+    <main className="relative flex w-full flex-col items-center justify-between gap-16 px-12 pb-10 pt-36 md:gap-8">
+      <OptionPurchaseWrapper />
+      <Image src={bunny} alt="bunny" className="bottom-0 right-0 xl:absolute" width={378} height={420} />
     </main>
   )
 }
