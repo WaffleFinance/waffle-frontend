@@ -1,10 +1,9 @@
 'use client'
-import Link from 'next/link'
-import HomeIcon from './icons/HomeIcon'
-import ArrowIncrease from './icons/ArrowIncrease'
 import clsx from 'clsx'
-import CoinsIcon from './icons/CoinsIcon'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import ArrowIncrease from './icons/ArrowIncrease'
+import CoinsIcon from './icons/CoinsIcon'
 import FaucetIcon from './icons/FaucetIcon'
 
 export default function NavItems() {
